@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "secret",
     "database": "movies_db",
+    "password": "HYPERDRIVE",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "HYPERDRIVE",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
