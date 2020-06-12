@@ -1,6 +1,7 @@
 {
   "development": {
     "username": "root",
+    "password": "Brandon94",
     "database": "movies_db",
     "password": "HYPERDRIVE",
     "host": "127.0.0.1",

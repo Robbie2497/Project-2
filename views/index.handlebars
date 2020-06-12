@@ -1,0 +1,43 @@
+<h1>Movie Database</h1>
+
+
+<ul>
+  {{#each movie}}
+  	<li>
+  	   <p>Title: {{this.title}}</p>
+  	   <p>Year: {{this.year}}</p>
+  	   <p>Rating: {{this.rating}}</p>
+  	</li>
+  {{/each}}
+</ul>
+
+<h1>Favorites:</h1>
+<ul>
+    {{#each favorite}}
+    <li>
+        <p>Title: {{this.title}}</p>
+        <p>Year Realeased: {{this.year}}</p>
+        <p>Rating: {{this.rating}}</p>
+        <p>Reason: {{this.reason}}</p>
+    </li>
+</ul>
+
+<form action="/" method="GET">
+	<textarea type="text" name="task" placeholder="Search for a movie"></textarea>
+
+	<button type="submit">Search</button>
+</form>
+
+<div>
+	<button id = "addFavorite">Add to favorites</button>
+</div>
+
+
+<script type="text/javascript">
+
+$("#addFavorite")
+
+
+
+
+</script>
