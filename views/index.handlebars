@@ -1,3 +1,7 @@
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
 <h1>Movie Database</h1>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -9,7 +13,7 @@
                 <input type="text" class="form-control" id="search" placeholder="Search for a movie">
             </div>
             <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
             </div>
 
 </form>
@@ -61,3 +65,21 @@
 
 
 </div>
+
+<script>
+
+let queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=a29b2a0f";
+
+$("#searchBtn").on("click", function() {
+    search();
+};
+
+function search() {
+let title = $("#search").val();
+    console.log(title);
+
+
+
+
+
+</script>
