@@ -3,21 +3,15 @@ const path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const db = require("../models");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
-    // const movie = {
-    //   title: "movie title",
-    //   year: "2000",
-    //   rating: "1",
-    //   reason: ""
-    //   };
-    res.render("index");
-    // // If the user already has an account send them to the members page
-    // if (req.user) {
-    //   res.redirect("/members");
-    // }
-    // res.sendFile(path.join(__dirname, "../public/signup.html"));
+    // If the user already has an account send them to the members page
+    if (req.user) {
+      res.redirect("/members");
+    }
+    res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
   app.get("/login", (req, res) => {
@@ -31,6 +25,8 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    db.Movie.findAll({}).then(movies => {
+      res.render("index", { movies: movies });
+    });
   });
 };
