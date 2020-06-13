@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     rating: {
-      type: DataTypes.INT
+      type: DataTypes.INTEGER
     },
     year: {
       type: DataTypes.STRING

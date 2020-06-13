@@ -1,0 +1,61 @@
+<h1>Movie Database</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<form>
+    <div class="container">
+        <div class="form-group row">
+            <div class="col-md-10">
+                <input type="text" class="form-control" id="search" placeholder="Search for a movie">
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+
+</form>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <table class="table table-responsive">
+                <!-- table content here -->
+                <ul>
+                    <li>
+                        <p>Title: {{this.title}}</p>
+                        <p>Year Released: {{this.released}}</p>
+                        <p>Rating: {{this.rating}}</p>
+                    </li>
+                </ul>
+            </table>
+        </div>
+
+        <div class="col-md-2">
+            <button id="addFavorite" class="btn btn-primary">Add to favorites</button>
+        </div>
+
+
+        <div class="col-md-5">
+            <h1>Favorites:</h1>
+            <table class="table table-responsive">
+                <ul>
+                    {{!-- {{#each favorite}} --}}
+                    <li>
+                        <p>Test</p>
+                        <p>Title: {{this.title}}</p>
+                        <p>Year Realeased: {{this.year}}</p>
+                        <p>Rating: {{this.rating}}</p>
+                        <p>Reason: {{this.reason}}</p>
+                    </li>
+                </ul>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+
+
+</div>
