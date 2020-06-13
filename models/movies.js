@@ -23,3 +23,5 @@ module.exports = function(sequelize, DataTypes) {
   });
   return Movie;
 };
+
+//movies belongs to user
