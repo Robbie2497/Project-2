@@ -21,11 +21,13 @@
             <table class="table table-responsive">
                 <!-- table content here -->
                 <ul>
+                    {{#each movies}}
                     <li>
                         <p>Title: {{this.title}}</p>
                         <p>Year Released: {{this.released}}</p>
                         <p>Rating: {{this.rating}}</p>
                     </li>
+                    {{/each}}
                 </ul>
             </table>
         </div>
