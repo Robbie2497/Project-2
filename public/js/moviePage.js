@@ -1,7 +1,9 @@
 $(document).ready(() => {
   $("#searchBtn").on("click", event => {
     event.preventDefault();
-    const title = $("#search").val().trim();
+    const title = $("#search")
+      .val()
+      .trim();
     const queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=cd2db0c6";
     $.ajax({
       url: queryURL,
