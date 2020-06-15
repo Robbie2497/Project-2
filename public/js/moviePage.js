@@ -19,6 +19,7 @@ $(document).ready(() => {
       resultDiv.append(resultCard);
 
       const resultCardImage = $("<img>");
+      resultCardImage.addClass("image")
       resultCardImage.attr("src", data.Poster);
       resultDiv.append(resultCardImage);
 
@@ -29,17 +30,17 @@ $(document).ready(() => {
 
       const resultCardYear = $("<p>");
       resultCardYear.text(`Releaseed Year: ${data.Year}`);
-      resultCardTitle.addClass("card-text");
+      resultCardTitle.addClass("card-text year");
       resultDiv.append(resultCardYear);
 
       const resultCardGenre = $("<p>");
       resultCardGenre.text(`Genre(s): ${data.Genre}`);
-      resultCardTitle.addClass("card-text");
+      resultCardTitle.addClass("card-text genre");
       resultDiv.append(resultCardGenre);
 
       const resultCardPlot = $("<p>");
       resultCardPlot.text(`Plot: ${data.Plot}`);
-      resultCardTitle.addClass("card-text");
+      resultCardTitle.addClass("card-text plot");
       resultDiv.append(resultCardPlot);
 
       const favouriteButton = $("<button>");
@@ -53,7 +54,18 @@ $(document).ready(() => {
   });
   $("#resultRow").on("click", "button", event => {
     event.preventDefault();
+    const movieData = {
+      title: $(".card-title").text()
+    };
+    console.log(movieData);
     console.log("this");
+    $.ajax({
+      url: "/api/movies",
+      method: "POST",
+      data: movieData
+    }).then(() => {
+      location.reload();
+    });
   });
 });
 
