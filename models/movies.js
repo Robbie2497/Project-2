@@ -21,6 +21,13 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   });
+  Movie.associate = function(models) {
+    Movie.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Movie;
 };
 
