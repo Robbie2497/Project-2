@@ -67,10 +67,12 @@ $(document).ready(() => {
       location.reload();
     });
   });
-  $("#resultRow").on("click", "button", event => {
+  $("#resultRow").on("click", "button", async event => {
     event.preventDefault();
+    const { id } = await $.get("/api/user_data");
     const movieData = {
-      title: $(".card-title").text()
+      title: $(".card-title").text(),
+      UserId: id
     };
     console.log(movieData);
     console.log("this");
