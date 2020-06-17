@@ -1,3 +1,3 @@
 USE movies_db;
 
-SELECT * FROM Movies;
+SELECT * FROM Movie;

@@ -51,6 +51,8 @@ $(document).ready(() => {
 
       const favouriteButton = $("<button>");
       favouriteButton.text("Add To Favourites");
+      favouriteButton.attr("data-toggle", "modal");
+      favouriteButton.attr("data-target", "#myModal");
       favouriteButton.addClass("cardButton");
       favouriteButton.attr("id", "favBtn");
       resultDiv.append(favouriteButton);
@@ -67,7 +69,7 @@ $(document).ready(() => {
       location.reload();
     });
   });
-  $("#resultRow").on("click", "button", event => {
+  $("#saveBtn").on("click", "button", event => {
     event.preventDefault();
     const movieData = {
       title: $(".card-title").text()
