@@ -19,7 +19,7 @@ $(document).ready(() => {
       resultDiv.append(resultCard);
 
       const resultCardImage = $("<img>");
-      resultCardImage.addClass("image")
+      resultCardImage.addClass("image");
       resultCardImage.attr("src", data.Poster);
       resultDiv.append(resultCardImage);
 
@@ -68,6 +68,3 @@ $(document).ready(() => {
     });
   });
 });
-
-//
-// let queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=a29b2a0f";
