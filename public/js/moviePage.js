@@ -42,6 +42,12 @@ $(document).ready(() => {
       resultCardTitle.addClass("card-text");
       resultDiv.append(resultCardPlot);
 
+      const resultCardRating = $("<p>");
+      const ratings = JSON.stringify(data.Ratings[1].Value);
+      resultCardRating.text(`Rotten Tomatoes Rating: ${ratings}`);
+      resultCardRating.addClass("card-text");
+      resultDiv.append(resultCardRating);
+
       const favouriteButton = $("<button>");
       favouriteButton.text("Add To Favourites");
       favouriteButton.addClass("cardButton");
