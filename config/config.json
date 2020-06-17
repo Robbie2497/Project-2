@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "secret",
+    "password": "Brandon94",
     "database": "movies_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -16,5 +16,21 @@
   "production": {
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
+  },
+  
+  "name": "mysql-sequelize-heroku",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Albert B",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^.15.0",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.10.2"
   }
 }
