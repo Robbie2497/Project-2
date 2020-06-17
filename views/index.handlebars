@@ -5,7 +5,7 @@
 </head> --}}
 <div class="container">
 
-    <div class="row">
+    <div class="row justify-content-center">
         <h1>Movie Database</h1>
     </div>
 
@@ -33,18 +33,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-7" id="resultRow">
-            <table class="table table-responsive">
-                <!-- table content here -->
-                <ul>
-                    {{#each movies}}
-                    <li>
-                        <p>Title: {{this.title}}</p>
-                        <p>Year Released: {{this.released}}</p>
-                        <p>Rating: {{this.rating}}</p>
-                    </li>
-                    {{/each}}
-                </ul>
-            </table>
         </div>
 
         {{!-- <div class="col-md-2">
@@ -56,14 +44,14 @@
             <h1>Favorites:</h1>
             <table class="table table-responsive">
                 <ul>
-                    {{!-- {{#each favorite}} --}}
+                    {{#each movies}}
                     <li>
-                        <p>Test</p>
                         <p>Title: {{this.title}}</p>
-                        <p>Year Realeased: {{this.year}}</p>
+                        <p>Year Released: {{this.released}}</p>
                         <p>Rating: {{this.rating}}</p>
-                        <p>Reason: {{this.reason}}</p>
+                        <button class="deleteBtn" data-id={{this.id}}>Delete</button> 
                     </li>
+                    {{/each}}
                 </ul>
             </table>
         </div>

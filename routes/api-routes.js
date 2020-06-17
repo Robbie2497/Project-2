@@ -24,7 +24,7 @@ module.exports = function(app) {
     });
   });
   app.post("/api/movies", (req, res) => {
-    db.post.create(req.body).then(dbMovie => {
+    db.Movie.create(req.body).then(dbMovie => {
       res.json(dbMovie);
     });
   });
