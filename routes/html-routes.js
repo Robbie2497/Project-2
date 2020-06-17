@@ -26,7 +26,7 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, (req, res) => {
     db.Movie.findAll({}).then(movies => {
-      res.render("index", { movies: movies });
+      res.render("index", { movies: movies.map(movie => movie.dataValues) });
     });
   });
 };
