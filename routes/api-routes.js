@@ -1,11 +1,19 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const axios = require("axios");
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
     db.Movie.findall({}).then(dbMovie => {
       res.render("index", dbMovie);
+    });
+  });
+  app.get("/api/omdb", (req, res) => {
+    const title = req.body;
+    const queryURL = `https://www.omdbapi.com/?t=${title}&apikey=${process.env.movie_API_KEY}`;
+    axios.get(queryURL).then(data => {
+      res.json(data);
     });
   });
   app.get("/api/movies", (req, res) => {
