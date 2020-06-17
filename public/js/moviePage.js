@@ -52,6 +52,15 @@ $(document).ready(() => {
       console.log(data);
     });
   });
+  $("ul").on("click", "button", event => {
+    event.preventDefault();
+    const pressedButton = $(event.target);
+    $.ajax(`/api/movies/${pressedButton.data("id")}`, {
+      method: "DELETE"
+    }).then(() => {
+      location.reload();
+    });
+  });
   $("#resultRow").on("click", "button", event => {
     event.preventDefault();
     const movieData = {
