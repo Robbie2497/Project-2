@@ -4,11 +4,12 @@ $(document).ready(() => {
     const title = $("#search")
       .val()
       .trim();
-    const queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=cd2db0c6";
-    $.ajax({
-      url: queryURL,
+    // const queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=cd2db0c6";
+    $.ajax(`/api/omdb/${title}`, {
       method: "GET"
     }).then(data => {
+      // $("#resultRow").html("");
+      $("#resultRow").empty();
       const movieCard = `
       <div class="card>
         <div class="card-body">
