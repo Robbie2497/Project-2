@@ -21,6 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   });
+  //movies belongs to user
   Movie.associate = function(models) {
     Movie.belongsTo(models.User, {
       foreignKey: {
@@ -30,5 +31,3 @@ module.exports = function(sequelize, DataTypes) {
   };
   return Movie;
 };
-
-//movies belongs to user

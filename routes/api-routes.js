@@ -12,7 +12,6 @@ module.exports = function(app) {
   });
   app.get("/api/omdb/:title", async (req, res) => {
     const title = req.params.title;
-    console.log(process.env.MOVIE_API_KEY);
     const queryURL = `https://www.omdbapi.com/?t=${title}&apikey=${process.env.MOVIE_API_KEY}`;
     await axios.get(queryURL).then(data => {
       res.json(data.data);
