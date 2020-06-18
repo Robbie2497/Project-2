@@ -29,4 +29,7 @@ module.exports = function(app) {
       res.render("index", { movies: movies.map(movie => movie.dataValues) });
     });
   });
+  // app.get("*", (req, res) => {
+
+  // });
 };
