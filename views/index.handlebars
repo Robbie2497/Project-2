@@ -1,45 +1,21 @@
-
-{{!-- JQUERY is inside the main.handlebars --}}
-{{!-- <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head> --}}
 <div class="container">
-
     <div class="row justify-content-center">
         <h1>Movie Database</h1>
     </div>
-
-</div>
-{{!-- Stlyesheet is inside the main.handlebars --}}
-{{!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> --}}
-
-<form>
-    <div class="container">
-
-        <div class="form-group row">
-            <div class="col-md-10">
-                <input type="text" class="form-control" id="search" placeholder="Search for a movie" />
-            </div>
-            <div class="col-sm-2">
-                <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
-            </div>
+    <div class="form-group row">
+        <div class="col-md-10">
+            <input type="text" class="form-control" id="search" placeholder="Search for a movie" />
+        </div>
+        <div class="col-sm-2">
+            <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
         </div>
     </div>
-
-</form>
-
-
-<div class="container">
     <div class="row">
+        {{!-- Row To append Movie Card --}}
         <div class="col-md-7" id="resultRow">
         </div>
-
-        {{!-- <div class="col-md-2">
-            <button id="addFavorite" class="btn btn-primary">Add to favorites</button>
-        </div> --}}
-
-
+        {{!-- End row to append Movie Card --}}
+        {{!-- Area To Insert Favorite Movies --}}
         <div class="col-md-5">
             <h1>Favorites:</h1>
             <table class="table table-responsive">
@@ -55,12 +31,6 @@
                 </ul>
             </table>
         </div>
+        {{!-- End Area To Insert Favorite Movies --}}
     </div>
-</div>
-
-
-
-</div>
-
-
 </div>
