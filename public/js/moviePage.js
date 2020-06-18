@@ -4,11 +4,9 @@ $(document).ready(() => {
     const title = $("#search")
       .val()
       .trim();
-    // const queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=cd2db0c6";
     $.ajax(`/api/omdb/${title}`, {
       method: "GET"
     }).then(data => {
-      // $("#resultRow").html("");
       $("#resultRow").empty();
       const movieCard = `
       <div class="card>
@@ -18,7 +16,7 @@ $(document).ready(() => {
           <p class="card-text">Released Year: <span class="year">${data.Year}</span></p>
           <p class="card-text">Genre(s): <span class="genre">${data.Genre}</span></p>
           <p class="card-text">Plot: <span class="plot">${data.Plot}</span></p>
-          <p class="card-text">Rotten Tomato Rating: <span class="rating">${data.Ratings[1].Value}</span></p>
+          <p class="card-text">Rotten Tomato Rating: <span class="rating">${data.Ratings[1].Value}</span>/100</p>
           <button id="favBtn" data-toggle="modal" data-target="#myModal" class="cardButton">Add  To Favorites</button>
         </div>
       </div>`;
@@ -37,12 +35,17 @@ $(document).ready(() => {
   $("#saveBtn").on("click", async event => {
     event.preventDefault();
     const { id } = await $.get("/api/user_data");
+    console.log($("#reason").text());
     const movieData = {
       title: $(".card-title").text(),
+      favorite: 1,
+      reason: $("#reason")
+        .val()
+        .trim(),
+      rating: parseInt($(".rating").text()),
+      year: $(".year").text(),
       UserId: id
     };
-    console.log(movieData);
-    console.log("this");
     $.ajax({
       url: "/api/movies",
       method: "POST",
