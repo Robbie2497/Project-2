@@ -4,60 +4,25 @@ $(document).ready(() => {
     const title = $("#search")
       .val()
       .trim();
-    const queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=cd2db0c6";
-    $.ajax({
-      url: queryURL,
+    // const queryURL = "https://www.omdbapi.com/?t=" + title + "&apikey=cd2db0c6";
+    $.ajax(`/api/omdb/${title}`, {
       method: "GET"
     }).then(data => {
-      $("#resultRow").html("");
-      const resultDiv = $("<div>");
-      resultDiv.addClass("card");
-      $("#resultRow").append(resultDiv);
-
-      const resultCard = $("<div>");
-      resultCard.addClass("card-body");
-      resultDiv.append(resultCard);
-
-      const resultCardImage = $("<img>");
-      resultCardImage.addClass("image");
-      resultCardImage.attr("src", data.Poster);
-      resultDiv.append(resultCardImage);
-
-      const resultCardTitle = $("<p>");
-      resultCardTitle.text(`${data.Title}`);
-      resultCardTitle.addClass("card-title");
-      resultDiv.append(resultCardTitle);
-
-      const resultCardYear = $("<p>");
-      resultCardYear.text(`Releaseed Year: ${data.Year}`);
-      resultCardTitle.addClass("card-text year");
-      resultDiv.append(resultCardYear);
-
-      const resultCardGenre = $("<p>");
-      resultCardGenre.text(`Genre(s): ${data.Genre}`);
-      resultCardTitle.addClass("card-text genre");
-      resultDiv.append(resultCardGenre);
-
-      const resultCardPlot = $("<p>");
-      resultCardPlot.text(`Plot: ${data.Plot}`);
-      resultCardTitle.addClass("card-text plot");
-      resultDiv.append(resultCardPlot);
-
-      const resultCardRating = $("<p>");
-      const ratings = JSON.stringify(data.Ratings[1].Value);
-      resultCardRating.text(`Rotten Tomatoes Rating: ${ratings}`);
-      resultCardRating.addClass("card-text");
-      resultDiv.append(resultCardRating);
-
-      const favouriteButton = $("<button>");
-      favouriteButton.text("Add To Favourites");
-      favouriteButton.attr("data-toggle", "modal");
-      favouriteButton.attr("data-target", "#myModal");
-      favouriteButton.addClass("cardButton");
-      favouriteButton.attr("id", "favBtn");
-      resultDiv.append(favouriteButton);
-
-      console.log(data);
+      // $("#resultRow").html("");
+      $("#resultRow").empty();
+      const movieCard = `
+      <div class="card>
+        <div class="card-body">
+          <img src="${data.Poster} alt="Picture of ${data.Title}" />
+          <h2 class="card-title">${data.Title}</h2>
+          <p class="card-text">Released Year: <span class="year">${data.Year}</span></p>
+          <p class="card-text">Genre(s): <span class="genre">${data.Genre}</span></p>
+          <p class="card-text">Plot: <span class="plot">${data.Plot}</span></p>
+          <p class="card-text">Rotten Tomato Rating: <span class="rating">${data.Ratings[1].Value}</span></p>
+          <button id="favBtn" data-toggle="modal" data-target="#myModal" class="cardButton">Add  To Favorites</button>
+        </div>
+      </div>`;
+      $("#resultRow").append(movieCard);
     });
   });
   $("ul").on("click", "button", event => {
@@ -69,7 +34,7 @@ $(document).ready(() => {
       location.reload();
     });
   });
-  $("#resultRow").on("click", "button", async event => {
+  $("#saveBtn").on("click", async event => {
     event.preventDefault();
     const { id } = await $.get("/api/user_data");
     const movieData = {

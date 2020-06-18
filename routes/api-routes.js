@@ -2,6 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 const axios = require("axios");
+require("dotenv").config();
 
 module.exports = function(app) {
   app.get("/", (req, res) => {
@@ -9,11 +10,12 @@ module.exports = function(app) {
       res.render("index", dbMovie);
     });
   });
-  app.get("/api/omdb", (req, res) => {
-    const title = req.body;
-    const queryURL = `https://www.omdbapi.com/?t=${title}&apikey=${process.env.movie_API_KEY}`;
-    axios.get(queryURL).then(data => {
-      res.json(data);
+  app.get("/api/omdb/:title", async (req, res) => {
+    const title = req.params.title;
+    console.log(process.env.MOVIE_API_KEY);
+    const queryURL = `https://www.omdbapi.com/?t=${title}&apikey=${process.env.MOVIE_API_KEY}`;
+    await axios.get(queryURL).then(data => {
+      res.json(data.data);
     });
   });
   app.get("/api/movies", (req, res) => {
