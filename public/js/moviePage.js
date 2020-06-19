@@ -48,18 +48,32 @@ $(document).ready(() => {
     Return: None
   */
   $("ul").on("click", "button", event => {
+    //Prevent Click refresh
     event.preventDefault();
+    //Grab Button that was pressed
     const pressedButton = $(event.target);
+    //Query omdb API using button data
     $.ajax(`/api/movies/${pressedButton.data("id")}`, {
       method: "DELETE"
     }).then(() => {
+      //Reload page
       location.reload();
-    });
-  });
+    }); //End API query
+  }); //End button click on unordered list
+  /*
+    saveBtn Click Event
+    Purpose: To query query server side to delete item from database
+    parameters: click - event for searchBtn ID
+                button - tags for the clikc event
+                event - Call back function with event information
+    Return: None
+  */
   $("#saveBtn").on("click", async event => {
+    //Prevent Page Refresh
     event.preventDefault();
+    //Grab User ID from the server
     const { id } = await $.get("/api/user_data");
-    console.log($("#reason").text());
+    //Create Movie data object to send to server
     const movieData = {
       title: $(".card-title").text(),
       favorite: 1,
@@ -70,12 +84,14 @@ $(document).ready(() => {
       year: $(".year").text(),
       UserId: id
     };
+    //Query Server To Input data
     $.ajax({
       url: "/api/movies",
       method: "POST",
       data: movieData
     }).then(() => {
+      //Reload Page
       location.reload();
     });
-  });
-});
+  }); //End saveBtn Click Event
+}); //End Waiting For window page load
