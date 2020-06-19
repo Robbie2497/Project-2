@@ -21,10 +21,10 @@
             <table class="table table-responsive">
                 <ul>
                     {{#each movies}}
-                    <li>
-                        <p>Title: {{this.title}}</p>
-                        <p>Year Released: {{this.year}}</p>
-                        <p>Rating: {{this.rating}}</p>
+                    <li class="list-group">
+                        <p class="list-group-item">Title: {{this.title}}</p>
+                        <p class="list-group-item">Year Released: {{this.year}}</p>
+                        <p class="list-group-item">Rating: {{this.rating}}%</p>
                         <button class="deleteBtn" data-id={{this.id}}>Delete</button> 
                     </li>
                     {{/each}}

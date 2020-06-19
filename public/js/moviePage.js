@@ -30,7 +30,7 @@ $(document).ready(() => {
           <p class="card-text">Released Year: <span class="year">${data.Year}</span></p>
           <p class="card-text">Genre(s): <span class="genre">${data.Genre}</span></p>
           <p class="card-text">Plot: <span class="plot">${data.Plot}</span></p>
-          <p class="card-text">Rotten Tomato Rating: <span class="rating">${data.Ratings[1].Value}</span>/100</p>
+          <p class="card-text">Rotten Tomato Rating: <span class="rating">${data.Ratings[1].Value}</span></p>
           <button id="favBtn" data-toggle="modal" data-target="#myModal" class="cardButton">Add  To Favorites</button>
         </div>
       </div>
