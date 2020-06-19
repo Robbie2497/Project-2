@@ -28,6 +28,7 @@ body {
   background-image: url('/images/movie-theater.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
 }
 .login {
   color: white;
