@@ -93,5 +93,13 @@ $(document).ready(() => {
       //Reload Page
       location.reload();
     });
-  }); //End saveBtn Click Event
-}); //End Waiting For window page load
+  });
+  $("ul").on("click", "li", ({ target }) => {
+    const id = $(target.parentElement).data("id");
+    $.ajax(`/api/movies/${id}`, {
+      method: "GET"
+    }).then(data => {
+      $("#savedReason").val(data.reason);
+    });
+  });
+});
