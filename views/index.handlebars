@@ -16,8 +16,8 @@
         </div>
         {{!-- End row to append Movie Card --}}
         {{!-- Area To Insert Favorite Movies --}}
-        <div class="col-md-5">
-            <h1>Favorites:</h1>
+        <div class="col-md-5 favoritesList">
+            <h1 class="favoritesText">Favorites:</h1>
             <table class="table table-responsive">
                 <ul>
                     {{#each movies}}
@@ -25,6 +25,7 @@
                         <p class="list-group-item">Title: {{this.title}}</p>
                         <p class="list-group-item">Year Released: {{this.year}}</p>
                         <p class="list-group-item">Rating: {{this.rating}}%</p>
+                        <p class="list-group-item reason">Reason: {{this.reason}}</p>
                         <button class="deleteBtn" data-id={{this.id}}>Delete</button> 
                     </li>
                     {{/each}}
