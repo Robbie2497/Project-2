@@ -22,7 +22,8 @@ module.exports = function(app) {
       res.json(dbMovie);
     });
   });
-  app.get("/api/'movies:id", (req, res) => {
+  app.get("/api/movies/:id", (req, res) => {
+    console.log(req.params.id);
     db.Movie.findOne({
       where: {
         id: req.params.id

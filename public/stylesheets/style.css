@@ -31,6 +31,12 @@ left: 150px;
 
 .favoritesText {
   text-align: center;
+  color: white;
+}
+
+.favoritesTitle {
+  text-align: center;
+  font-size: larger;
 }
 
 .deleteBtn {
@@ -43,7 +49,7 @@ left: 150px;
 
 .reason {
   white-space: nowrap;
-  width: 405px;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
 }

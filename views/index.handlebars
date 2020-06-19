@@ -21,8 +21,8 @@
             <table class="table table-responsive">
                 <ul>
                     {{#each movies}}
-                    <li class="list-group">
-                        <p class="list-group-item">Title: {{this.title}}</p>
+                    <li class="list-group" data-toggle="modal" data-target="#showReason" data-id={{this.id}}>
+                        <p class="list-group-item favoritesTitle">{{this.title}}</p>
                         <p class="list-group-item">Year Released: {{this.year}}</p>
                         <p class="list-group-item">Rating: {{this.rating}}%</p>
                         <p class="list-group-item reason">Reason: {{this.reason}}</p>

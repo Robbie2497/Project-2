@@ -78,4 +78,12 @@ $(document).ready(() => {
       location.reload();
     });
   });
+  $("ul").on("click", "li", ({ target }) => {
+    const id = $(target.parentElement).data("id");
+    $.ajax(`/api/movies/${id}`, {
+      method: "GET"
+    }).then(data => {
+      $("#savedReason").val(data.reason);
+    });
+  });
 });
