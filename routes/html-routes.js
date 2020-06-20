@@ -32,12 +32,15 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, (req, res) => {
-    db.Movie.findAll({}).then(movies => {
-      res.render("index", { movies: movies.map(movie => movie.dataValues) });
+  app.get("/members", isAuthenticated, async (req, res) => {
+    isAuthenticated(req, res, () => {
+      db.Movie.findAll({
+        where: {
+          UserId: req.user.id
+        }
+      }).then(movies => {
+        res.render("index", { movies: movies.map(movie => movie.dataValues) });
+      });
     });
   });
-  // app.get("*", (req, res) => {
-
-  // });
 };
