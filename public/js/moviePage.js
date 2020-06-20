@@ -112,7 +112,7 @@ $(document).ready(() => {
       data: {
         reason: $("#savedReason").val()
       }
-    }).then(data => {
+    }).then(() => {
       location.reload();
     });
   });
