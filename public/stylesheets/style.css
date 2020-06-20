@@ -11,10 +11,19 @@ html {
 .list-group{
   color: black;
 }
+.errorCol{
+  margin-right: auto;
+  margin-left: auto;
+}
+textarea
+{
+  width: 100%;
+  height: 200px;
+}
 
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  margin-bottom: 100px;
   background-image: URL('/images/movie-theater.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -23,6 +32,9 @@ body {
 
 .modal-title{
   color: black;
+}
+.errorModal{
+  margin-top: 20px;
 }
 
 .footer {
