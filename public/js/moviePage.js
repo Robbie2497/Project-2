@@ -100,6 +100,20 @@ $(document).ready(() => {
       method: "GET"
     }).then(data => {
       $("#savedReason").val(data.reason);
+      $("#updateBtn").attr("data-id", id);
+    });
+  });
+  $("#updateBtn").on("click", event => {
+    event.preventDefault();
+    const pressedButton = $(event.target);
+    const id = pressedButton.data("id");
+    $.ajax(`/api/movies/${id}`, {
+      method: "PUT",
+      data: {
+        reason: $("#savedReason").val()
+      }
+    }).then(data => {
+      location.reload();
     });
   });
 });

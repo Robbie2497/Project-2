@@ -31,6 +31,15 @@ module.exports = function(app) {
       res.json(dbMovie);
     });
   });
+  app.put("/api/movies/:id", (req, res) => {
+    db.Movie.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(dbMovie => {
+      res.json(dbMovie);
+    });
+  });
   app.post("/api/movies", (req, res) => {
     db.Movie.create(req.body).then(dbMovie => {
       res.json(dbMovie);
