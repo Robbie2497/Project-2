@@ -14,10 +14,12 @@ $(document).ready(() => {
     const title = $("#search")
       .val()
       .trim();
+    console.log(title);
     //ajax query to serverside giving movie information
     $.ajax(`/api/omdb/${title}`, {
       method: "GET"
     }).then(data => {
+      console.log(data);
       //Empty html for resultRow ID
       $("#resultRow").empty();
       //Create Card with movie information
