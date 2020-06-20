@@ -10,26 +10,26 @@
             <button type="submit" id="searchBtn" class="btn btn-primary">Search</button>
         </div>
     </div>
-    <div class="row">
+    <div class="row favouritesList">
         {{!-- Row To append Movie Card --}}
         <div class="col-md-7" id="resultRow">
         </div>
         {{!-- End row to append Movie Card --}}
         {{!-- Area To Insert Favorite Movies --}}
-        <div class="col-md-5 favoritesList">
+        <div class="col-sm-5">
             <h1 class="favoritesText">Favorites:</h1>
             <table class="table table-responsive">
-                <ul>
-                    {{#each movies}}
-                    <li class="list-group" data-toggle="modal" data-target="#showReason" data-id={{this.id}}>
+            <ul>
+                {{#each movies}}
+                <li class="list-group" data-toggle="modal" data-target="#showReason" data-id={{this.id}}>
                         <p class="list-group-item favoritesTitle">{{this.title}}</p>
                         <p class="list-group-item">Year Released: {{this.year}}</p>
                         <p class="list-group-item">Rating: {{this.rating}}%</p>
                         <p class="list-group-item reason">Reason: {{this.reason}}</p>
                         <button class="deleteBtn" data-id={{this.id}}>Delete</button> 
-                    </li>
-                    {{/each}}
-                </ul>
+                </li>
+                {{/each}}
+            </ul>
             </table>
         </div>
         {{!-- End Area To Insert Favorite Movies --}}
