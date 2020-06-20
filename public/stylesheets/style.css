@@ -8,6 +8,10 @@ html {
   min-height: 100%;
 }
 
+.list-group{
+  color: black;
+}
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
