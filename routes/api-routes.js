@@ -23,13 +23,11 @@ module.exports = function(app) {
     });
   });
   app.get("/api/movies/:id", (req, res) => {
-    console.log(req.params.id);
     db.Movie.findOne({
       where: {
         id: req.params.id
       }
     }).then(dbMovie => {
-      console.log(dbMovie);
       res.json(dbMovie);
     });
   });
@@ -38,9 +36,6 @@ module.exports = function(app) {
       res.json(dbMovie);
     });
   });
-
-  // app.get("/api/movies:sort");
-
   app.delete("/api/movies/:id", (req, res) => {
     db.Movie.destroy({
       where: {
